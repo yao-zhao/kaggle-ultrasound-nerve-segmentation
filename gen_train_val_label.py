@@ -41,11 +41,11 @@ for i in range(numfiles/2):
 
 with open(train_file,'wb') as csvfile:
     writer = csv.writer(csvfile, delimiter=' ')
-    for index in range(len(train_files)):    
-        writer.writerow([train_files[index]])        
+    for index in range(len(train_files)/2):    
+        writer.writerow([train_files[2*index],train_files[2*index+1]])        
 
 with open(val_file,'wb') as csvfile:
     writer = csv.writer(csvfile, delimiter=' ')
-    for index in range(len(val_files)):    
-        writer.writerow([val_files[index]])        
+    for index in range(len(val_files)/2):    
+        writer.writerow([val_files[2*index],val_files[2*index+1]])        
 
