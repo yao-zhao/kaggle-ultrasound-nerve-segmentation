@@ -11,13 +11,14 @@ layer {
     root_folder: "data/raw/train/"
     source: "data/train.txt"
     is_color: false
-    batch_size: 16
+    batch_size: 64
     shuffle: true
     new_height: 224
     new_width: 310
   }
   transform_param{
     crop_size: 224
+    # mean_value: 100
   }
 }
 layer {
@@ -32,7 +33,7 @@ layer {
     root_folder: "data/raw/train/"
     source: "data/val.txt"
     is_color: false
-    batch_size: 1      
+    batch_size: 8      
     shuffle: true
     new_height: 224
     new_width: 310
@@ -1803,6 +1804,11 @@ layer {
   bottom: "conv1_1_D"
   bottom: "label"
   top: "loss"
+  loss_param: {
+    weight_by_label_freqs: true
+    class_weighting: 0.01
+    class_weighting: 0.99
+  }
 }
 layer {
   name: "accuracy"
