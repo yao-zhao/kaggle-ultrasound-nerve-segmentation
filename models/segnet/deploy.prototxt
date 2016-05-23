@@ -18,8 +18,10 @@ layer {
   }
   transform_param{
     crop_size: 224
+    mean_value: 100
   }
 }
+
 layer {
   bottom: "data"
   top: "conv1_1"
@@ -34,7 +36,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 16
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -98,7 +100,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 16
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -174,7 +176,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -238,7 +240,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -314,7 +316,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -378,7 +380,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -449,7 +451,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 64
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -519,7 +521,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -583,7 +585,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -654,7 +656,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 256
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -724,7 +726,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -788,7 +790,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -859,7 +861,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 256
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -948,7 +950,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 256
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -998,7 +1000,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -1062,7 +1064,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -1154,7 +1156,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 256
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -1203,7 +1205,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -1267,7 +1269,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -1359,7 +1361,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 64
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -1415,7 +1417,7 @@ layer {
       type: "constant"
       value: 0
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -1479,7 +1481,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -1564,7 +1566,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -1628,7 +1630,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 16
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1704,7 +1706,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 16
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1763,8 +1765,12 @@ layer {
     lr_mult: 1
     decay_mult: 1
   }
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
   convolution_param {
-    bias_term: false
+    # bias_term: false
     weight_filler {
       type: "msra"
     }
@@ -1776,6 +1782,7 @@ layer {
     kernel_size: 3
   }
 }
+
 layer {
   name: "loss"
   type: "Softmax"

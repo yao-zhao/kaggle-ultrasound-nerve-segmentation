@@ -11,7 +11,7 @@ layer {
     root_folder: "data/raw/train/"
     source: "data/train.txt"
     is_color: false
-    batch_size: 32
+    batch_size: 64
     shuffle: true
     new_height: 224
     new_width: 310
@@ -33,7 +33,7 @@ layer {
     root_folder: "data/raw/train/"
     source: "data/val.txt"
     is_color: false
-    batch_size: 4   
+    batch_size: 8   
     shuffle: true
     new_height: 224
     new_width: 310
@@ -57,7 +57,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 16
     pad: 1
     kernel_size: 3
   }
@@ -121,7 +121,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 16
     pad: 1
     kernel_size: 3
   }
@@ -197,7 +197,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -261,7 +261,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -337,7 +337,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -401,7 +401,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -472,7 +472,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 64
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -542,7 +542,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -606,7 +606,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -677,7 +677,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 256
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -747,7 +747,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -811,7 +811,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -882,7 +882,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 256
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -971,7 +971,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 256
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -1021,7 +1021,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -1085,7 +1085,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -1177,7 +1177,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 256
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -1226,7 +1226,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 256
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -1290,7 +1290,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -1382,7 +1382,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 128
+#     num_output: 64
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -1438,7 +1438,7 @@ layer {
       type: "constant"
       value: 0
     }
-    num_output: 128
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -1502,7 +1502,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1587,7 +1587,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1651,7 +1651,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 16
     pad: 1
     kernel_size: 3
   }
@@ -1727,7 +1727,7 @@ layer {
     weight_filler {
       type: "msra"
     }
-    num_output: 32
+    num_output: 16
     pad: 1
     kernel_size: 3
   }
