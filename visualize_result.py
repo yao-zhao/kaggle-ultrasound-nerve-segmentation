@@ -38,13 +38,15 @@ net = None
 net = caffe.Net(model_def,model_weights,caffe.TEST)
 net.forward()
 i=0
-img = net.blobs['data'].data[i,:,:,:]
+data = net.blobs['data'].data
 label = net.blobs['label'].data
 score = net.blobs['loss'].data
-img = np.transpose(img,(1,2,0)).astype(np.uint8)
-#ret,thresh = cv2.threshold(label,127,255,0)
-#im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-#cv2.drawContours(img, contours, -1, (0,255,0), 3)
+
+img = np.transpose(data[i,:,:,:],(1,2,0)).astype(np.uint8)[:,:,0]
+img2 = np.transpose(label[i,:,:,:],(1,2,0)).astype(np.uint8)[:,:,0]
+ret,thresh = cv2.threshold(img2,127,255,0)
+im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+cv2.drawContours(img, contours, -1, (0,255,0), 3)
 filename='img'
 cv2.namedWindow(filename)
 cv2.moveWindow(filename,10,50)

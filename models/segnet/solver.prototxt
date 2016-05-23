@@ -1,8 +1,8 @@
 net: "models/segnet/train_val.prototxt"  		
-test_initialization: false
-test_iter: 10
-test_interval: 500
-base_lr: 0.01
+test_initialization: true
+test_iter: 16
+test_interval: 100
+base_lr: 0.001
 lr_policy: "step"
 gamma: 1.0
 stepsize: 3000
