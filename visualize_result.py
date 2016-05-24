@@ -20,7 +20,7 @@ import sort_human
 
 # parse input
 parser = argparse.ArgumentParser(description='Process some image dimensions')
-parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_5000.caffemodel')
+parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_10000.caffemodel')
 parser.add_argument('--MODEL_DEF', type=str,default="models/segnet/deploy.prototxt")
 
 parsed = parser.parse_args(sys.argv[1:])

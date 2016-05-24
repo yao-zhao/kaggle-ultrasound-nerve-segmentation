@@ -26,7 +26,7 @@ for i in range(numfiles/2):
     
 for i in range(20):
     img = cv2.imread(train_path+images[i],flags=0)    
-    seg = cv2.imread(train_path+segs[i],0)
+    seg = cv2.imread(train_path+segs[i],0)*255
     ret,thresh = cv2.threshold(seg,127,255,0)
     im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(img, contours, -1, (0,255,0), 3)
