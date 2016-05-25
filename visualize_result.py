@@ -57,7 +57,7 @@ for i in range(batch_size):
     cv2.drawContours(img_merge, contours, -1, (0,255,0), 3)
     
     img3 = (score[i,1,:,:]*255).astype(np.uint8)
-    ret,thresh = cv2.threshold(img3,255*0.1,255,0)
+    ret,thresh = cv2.threshold(img3,255*0.12,255,0)
     im3, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
     cv2.drawContours(img_merge, contours, -1, (0,0,255), 3)
 #    img_merge[:,:,2]=img3
