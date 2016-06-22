@@ -20,7 +20,7 @@ import sort_human
 
 # parse input
 parser = argparse.ArgumentParser(description='Process some image dimensions')
-parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_10000.caffemodel')
+parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_6000.caffemodel')
 parser.add_argument('--MODEL_DEF', type=str,default="models/segnet/deploy.prototxt")
 
 parsed = parser.parse_args(sys.argv[1:])
@@ -54,12 +54,12 @@ for i in range(batch_size):
     img2 = np.transpose(label[i,:,:,:],(1,2,0)).astype(np.uint8)[:,:,0]*255
     ret,thresh = cv2.threshold(img2,127,255,0)
     im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(img_merge, contours, -1, (0,255,0), 3)
+    cv2.drawContours(img_merge, contours, -1, (0,255,0), 1)
     
     img3 = (score[i,1,:,:]*255).astype(np.uint8)
-    ret,thresh = cv2.threshold(img3,255*0.12,255,0)
+    ret,thresh = cv2.threshold(img3,255*0.3,255,0)
     im3, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(img_merge, contours, -1, (0,0,255), 3)
+    cv2.drawContours(img_merge, contours, -1, (0,0,255), 1)
 #    img_merge[:,:,2]=img3
     
     filename='img'

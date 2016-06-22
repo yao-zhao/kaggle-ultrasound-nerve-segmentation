@@ -11,7 +11,7 @@ layer {
     root_folder: "data/raw/train/"
     source: "data/val.txt"
     is_color: false
-    batch_size: 16
+    batch_size: 32
     shuffle: false
     new_height: 224
     new_width: 310
