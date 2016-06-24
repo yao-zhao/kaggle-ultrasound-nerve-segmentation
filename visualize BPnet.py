@@ -12,7 +12,7 @@ caffe_root = '/home/yz/caffe-yao'
 sys.path.insert(0, caffe_root + '/python')
 
 log = '/home/yz/uns/models/bpnet/net3/log.txt'
-log2 = '/home/yz/uns/models/bpnet/net5/log.txt'
+log2 = '/home/yz/uns/models/bpnet/net6/log.txt'
 
 
 plt.figure()
