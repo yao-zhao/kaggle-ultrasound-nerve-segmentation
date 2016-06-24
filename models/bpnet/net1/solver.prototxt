@@ -1,6 +1,6 @@
 net: "models/bpnet/train_val.prototxt"  		
 test_initialization: true
-test_iter: 8
+test_iter: 16
 test_interval: 100
 base_lr: 0.01
 iter_size: 1
@@ -9,7 +9,7 @@ gamma: 0.1
 stepsize: 1000
 display: 20
 momentum: 0.9
-max_iter: 3000
+max_iter: 2000
 weight_decay: 0.0005
 snapshot: 500
 snapshot_prefix: "data/models/bpgnet"  	
