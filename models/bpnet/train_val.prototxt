@@ -27,7 +27,7 @@ layer {
 }
 layer {
   name: "data"
-  type: "DenseImageData"
+  type: "Data"
   top: "data"
   top: "label"
   include{
@@ -66,8 +66,9 @@ layer {
       type: "xavier"
     }
     num_output: 32
-    pad: 1
-    kernel_size: 3
+    pad: 3
+    kernel_size: 7
+    stride: 2
   }
 }
 layer {
@@ -941,11 +942,19 @@ layer {
 #     dropout_ratio: 0.5
 #   }
 # }
-
+layer {
+  bottom: "pool5"
+  top: "fc2"
+  name: "fc2"
+  type: "InnerProduct"
+  inner_product_param {
+    num_output: 2
+  }
+}
 layer {
   name: "loss"
   type: "SoftmaxWithLoss"
-  bottom: "pool5"
+  bottom: "fc2"
   bottom: "label"
   top: "loss"
   # loss_param: {
@@ -957,7 +966,7 @@ layer {
 layer {
   name: "accuracy"
   type: "Accuracy"
-  bottom: "pool5"
+  bottom: "fc2"
   bottom: "label"
   top: "accuracy"
 }
