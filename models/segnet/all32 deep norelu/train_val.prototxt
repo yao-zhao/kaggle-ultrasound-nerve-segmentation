@@ -5,14 +5,36 @@ layer {
   top: "data"
   top: "label"
   include{
+    phase: TRAIN
+  }
+  dense_image_data_param {
+    root_folder: "data/raw/train/"
+    source: "data/train.txt"
+    is_color: false
+    batch_size: 32
+    shuffle: true
+    new_height: 224
+    new_width: 310
+  }
+  transform_param{
+    crop_size: 224
+    mean_value: 100
+  }
+}
+layer {
+  name: "data"
+  type: "DenseImageData"
+  top: "data"
+  top: "label"
+  include{
     phase: TEST
   }
   dense_image_data_param {
     root_folder: "data/raw/train/"
     source: "data/val.txt"
     is_color: false
-    batch_size: 16
-    shuffle: false
+    batch_size: 1  
+    shuffle: true
     new_height: 224
     new_width: 310
   }
@@ -35,7 +57,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -99,7 +121,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -175,7 +197,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -239,7 +261,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -315,7 +337,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -379,7 +401,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -450,7 +472,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 64
+#     num_output: 32
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -520,7 +542,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -584,7 +606,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -725,7 +747,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -789,7 +811,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -999,7 +1021,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1043,12 +1065,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv5_2_D"
-  top: "conv5_2_D"
-  name: "relu5_2_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv5_2_D"
+#   top: "conv5_2_D"
+#   name: "relu5_2_D"
+#   type: "ReLU"
+# }
 layer {
   bottom: "conv5_2_D"
   # bottom: "pool5_D"
@@ -1064,7 +1086,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1108,12 +1130,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv5_1_D"
-  top: "conv5_1_D"
-  name: "relu5_1_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv5_1_D"
+#   top: "conv5_1_D"
+#   name: "relu5_1_D"
+#   type: "ReLU"
+# }
 # layer {
 #   name: "decdrop5"
 #   type: "Dropout"
@@ -1205,7 +1227,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1249,12 +1271,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv4_2_D"
-  top: "conv4_2_D"
-  name: "relu4_2_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv4_2_D"
+#   top: "conv4_2_D"
+#   name: "relu4_2_D"
+#   type: "ReLU"
+# }
 layer {
   bottom: "conv4_2_D"
   # bottom: "pool4_D"
@@ -1270,7 +1292,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1314,12 +1336,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv4_1_D"
-  top: "conv4_1_D"
-  name: "relu4_1_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv4_1_D"
+#   top: "conv4_1_D"
+#   name: "relu4_1_D"
+#   type: "ReLU"
+# }
 # layer {
 #   name: "decdrop4"
 #   type: "Dropout"
@@ -1418,7 +1440,7 @@ layer {
       type: "constant"
       value: 0
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1462,12 +1484,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv3_2_D"
-  top: "conv3_2_D"
-  name: "relu3_2_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv3_2_D"
+#   top: "conv3_2_D"
+#   name: "relu3_2_D"
+#   type: "ReLU"
+# }
 layer {
   # bottom: "pool3_D"
   bottom: "conv3_2_D"
@@ -1483,7 +1505,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1527,12 +1549,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv3_1_D"
-  top: "conv3_1_D"
-  name: "relu3_1_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv3_1_D"
+#   top: "conv3_1_D"
+#   name: "relu3_1_D"
+#   type: "ReLU"
+# }
 # layer {
 #   name: "decdrop3"
 #   type: "Dropout"
@@ -1568,7 +1590,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1612,12 +1634,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv2_2_D"
-  top: "conv2_2_D"
-  name: "relu2_2_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv2_2_D"
+#   top: "conv2_2_D"
+#   name: "relu2_2_D"
+#   type: "ReLU"
+# }
 layer {
   bottom: "conv2_2_D"
   # bottom: "pool2_D"
@@ -1633,7 +1655,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1677,12 +1699,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv2_1_D"
-  top: "conv2_1_D"
-  name: "relu2_1_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv2_1_D"
+#   top: "conv2_1_D"
+#   name: "relu2_1_D"
+#   type: "ReLU"
+# }
 layer {
   name: "upsample1"
   type: "Upsample"
@@ -1709,7 +1731,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -1753,12 +1775,12 @@ layer {
     }
   }
 }
-layer {
-  bottom: "conv1_2_D"
-  top: "conv1_2_D"
-  name: "relu1_2_D"
-  type: "ReLU"
-}
+# layer {
+#   bottom: "conv1_2_D"
+#   top: "conv1_2_D"
+#   name: "relu1_2_D"
+#   type: "ReLU"
+# }
 layer {
   bottom: "conv1_2_D"
   # bottom: "pool1_D"
@@ -1832,10 +1854,22 @@ layer {
 #   name: "relu1_1_D"
 #   type: "ReLU"
 # }
-
 layer {
   name: "loss"
-  type: "Softmax"
+  type: "SoftmaxWithLoss"
   bottom: "conv1_1_D"
+  bottom: "label"
   top: "loss"
+  # loss_param: {
+  #   weight_by_label_freqs: true
+  #   class_weighting: 0.05
+  #   class_weighting: 0.95
+  # }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "conv1_1_D"
+  bottom: "label"
+  top: "accuracy"
 }

@@ -1,0 +1,30 @@
+name: "segnet"
+layer {
+  name: "data"
+  type: "DenseImageData"
+  top: "data"
+  top: "label"
+  include{
+    phase: TEST
+  }
+  dense_image_data_param {
+    root_folder: "data/raw/train/"
+    source: "data/val.txt"
+    is_color: false
+    batch_size: 16
+    shuffle: false
+    new_height: 224
+    new_width: 310
+  }
+  transform_param{
+    crop_size: 224
+    mean_value: 100
+  }
+}
+
+layer {
+  name: "loss"
+  type: "Softmax"
+  bottom: "conv1_1_D"
+  top: "loss"
+}

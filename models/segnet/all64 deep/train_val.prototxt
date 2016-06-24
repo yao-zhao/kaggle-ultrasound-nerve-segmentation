@@ -5,14 +5,36 @@ layer {
   top: "data"
   top: "label"
   include{
+    phase: TRAIN
+  }
+  dense_image_data_param {
+    root_folder: "data/raw/train/"
+    source: "data/train.txt"
+    is_color: false
+    batch_size: 16
+    shuffle: true
+    new_height: 224
+    new_width: 310
+  }
+  transform_param{
+    crop_size: 224
+    mean_value: 100
+  }
+}
+layer {
+  name: "data"
+  type: "DenseImageData"
+  top: "data"
+  top: "label"
+  include{
     phase: TEST
   }
   dense_image_data_param {
     root_folder: "data/raw/train/"
     source: "data/val.txt"
     is_color: false
-    batch_size: 16
-    shuffle: false
+    batch_size: 1  
+    shuffle: true
     new_height: 224
     new_width: 310
   }
@@ -1770,7 +1792,7 @@ layer {
     decay_mult: 1
   }
   param {
-    lr_mult: 0.1
+    lr_mult: 1
     decay_mult: 1
   }
   convolution_param {
@@ -1832,10 +1854,22 @@ layer {
 #   name: "relu1_1_D"
 #   type: "ReLU"
 # }
-
 layer {
   name: "loss"
-  type: "Softmax"
+  type: "SoftmaxWithLoss"
   bottom: "conv1_1_D"
+  bottom: "label"
   top: "loss"
+  # loss_param: {
+  #   weight_by_label_freqs: true
+  #   class_weighting: 0.05
+  #   class_weighting: 0.95
+  # }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "conv1_1_D"
+  bottom: "label"
+  top: "accuracy"
 }
