@@ -35,7 +35,7 @@ timestamp = str(tm.tm_year)+'_'+str(tm.tm_mon)+'_'+str(tm.tm_mday)+'_'+str(tm.tm
 parser = argparse.ArgumentParser(description='Process testing data')
 parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/bpnet_iter_1500.caffemodel')
 parser.add_argument('--MODEL_DEF', type=str,default="models/bpnet/deploy.prototxt")
-parser.add_argument('--RESULT_NAME', type=str,default='')
+parser.add_argument('--RESULT_NAME', type=str,default='0')
 # use parse
 parsed = parser.parse_args(sys.argv[1:])
 model_weights = root + parsed.MODEL_WEIGHT

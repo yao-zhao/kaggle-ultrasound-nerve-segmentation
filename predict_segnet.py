@@ -31,14 +31,14 @@ import time
 
 # parse input
 parser = argparse.ArgumentParser(description='Process testing data')
-parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_4000.caffemodel')
+parser.add_argument('--MODEL_WEIGHT', type=str,default='data/models/segnet_iter_2500.caffemodel')
 parser.add_argument('--MODEL_DEF', type=str,default="models/segnet/deploy.prototxt")
 parser.add_argument('--RESULT_NAME', type=str,default='0')
 # use parse
 parsed = parser.parse_args(sys.argv[1:])
 model_weights = root + parsed.MODEL_WEIGHT
 model_def = root + parsed.MODEL_DEF
-resultfolder = root+'data/result_mask/result'+parsed.RESULT_NAME+'/'
+resultfolder = root+'data/result_mask/result_'+parsed.RESULT_NAME+'/'
 if not os.path.exists(resultfolder):
 	os.mkdir(resultfolder)
 print parsed
@@ -58,20 +58,20 @@ caffe.set_mode_gpu()
 # calculate batches
 fi = 0
 num_batches = np.floor(num_test/batch_size).astype(np.int)+1
-prob = np.zeros((batch_size*num_batches,crop_h,crop_w),np.float)
+#prob = np.zeros((batch_size*num_batches,crop_h,crop_w),np.float)
 cvimg = np.zeros((crop_h,crop_w,3),np.uint8)
 for ibatch in range(num_batches):
     print [pylab.double(ibatch)/num_batches, batch_size]
     output = net.forward()
-    prob[ibatch*batch_size:(ibatch+1)*batch_size,:,:] = output['prob'][:,1,:,:]
+#    prob[ibatch*batch_size:(ibatch+1)*batch_size,:,:] = output['prob'][:,1,:,:]
     for i in range(batch_size):
         if fi < num_test:
             img = (output['prob'][i,1,:,:] * 255).astype(np.uint8)
             cvimg[:,:,0] = img
-            cv2.imwrite('mask_'+testfilenames[fi], cvimg)
+            cv2.imwrite(resultfolder+'mask_'+testfilenames[fi], cvimg)
             fi += 1
-prob=prob[0:num_test,:,:]
-np.save(resultfolder+'segprob.npy',prob)
+#prob=prob[0:num_test,:,:]
+#np.save(resultfolder+'segprob.npy',prob)
 
 
 

@@ -16,7 +16,7 @@ sys.path.insert(0, caffe_root + '/python')
 #log = '/home/yz/uns/models/segnet/all32 deep norelu/log2.txt'
 #log2 = '/home/yz/uns/models/segnet/exp32 deep/log.txt'
 log = '/home/yz/uns/models/segnet/exp32 deep bponly/log.txt'
-log2 = '/home/yz/uns/models/segnet/net1/log.txt'
+log2 = '/home/yz/uns/models/segnet/net2/log.txt'
 #log2 = '/home/yz/uns/models/segnet/all32 deep/log.txt'
 
 #pylab.show()
