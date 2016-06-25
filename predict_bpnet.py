@@ -62,7 +62,7 @@ prob = np.zeros((num_batches*batch_size,2))
 for ibatch in range(num_batches):
     print [pylab.double(ibatch)/num_batches, batch_size]
     output = net.forward()
-    prob[ibatch*batch_size:(ibatch+1)*batch_size] = output['prob']
+    prob[ibatch*batch_size:(ibatch+1)*batch_size,:] = output['prob']
 prob=prob[0:num_test,:]
 
 
@@ -75,10 +75,12 @@ with open(resultfile,'wb') as csvfile:
             row.append(str(prob[index,j]))
         writer.writerow(row)
 
+# stats
+bias = .3
 count0 = 0
 count1 = 0
 for i in range(len(testfilenames)):
-    if prob[i,0]>prob[i,1]:
+    if prob[i,0]>prob[i,1]+bias:
         count0 += 1
     else:
         count1 += 1
@@ -106,6 +108,7 @@ for ibatch in range(num_batches):
     output = net.forward()
     prob[ibatch*batch_size:(ibatch+1)*batch_size] = output['prob']
 prob=prob[0:num_train,:]
+# stats
 train_count0 = 0
 train_count1 = 0
 for i in range(len(trainfilenames)):

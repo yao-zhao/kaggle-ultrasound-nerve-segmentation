@@ -15,8 +15,8 @@ sys.path.insert(0, caffe_root + '/python')
 #log2 = '/home/yz/uns/models/segnet/batchnorm1D//log.txt'
 #log = '/home/yz/uns/models/segnet/all32 deep norelu/log2.txt'
 #log2 = '/home/yz/uns/models/segnet/exp32 deep/log.txt'
-log2 = '/home/yz/uns/models/segnet/exp32 deep/log2.txt'
 log = '/home/yz/uns/models/segnet/exp32 deep bponly/log.txt'
+log2 = '/home/yz/uns/models/segnet/net1/log.txt'
 #log2 = '/home/yz/uns/models/segnet/all32 deep/log.txt'
 
 #pylab.show()
@@ -35,4 +35,4 @@ plt.plot(train['iter'],train['total_loss'],'r')
 plt.plot(test['iter'],test['loss'],'y')
 plt.axis([0,4000,0, 0.1])
 plt.legend([log, log2])
-plt.savefig('compare.png')
+plt.savefig('/home/yz/uns/models/segnet/compare.png')

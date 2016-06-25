@@ -8,8 +8,8 @@ layer {
     phase: TEST
   }
   dense_image_data_param {
-    root_folder: "data/raw/train/"
-    source: "data/val.txt"
+    root_folder: "data/raw/test/"
+    source: "data/test_seg.txt"
     is_color: false
     batch_size: 16
     shuffle: false
@@ -17,7 +17,9 @@ layer {
     new_width: 310
   }
   transform_param{
-    crop_size: 224
+    # crop_size: 224
+    crop_w: 288
+    crop_h: 224
     mean_value: 100
   }
 }
@@ -26,5 +28,5 @@ layer {
   name: "loss"
   type: "Softmax"
   bottom: "conv1_1_D"
-  top: "loss"
+  top: "prob"
 }
