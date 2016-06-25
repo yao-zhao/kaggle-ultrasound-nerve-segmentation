@@ -11,8 +11,8 @@ import parseLog
 caffe_root = '/home/yz/caffe-yao'
 sys.path.insert(0, caffe_root + '/python')
 
-log = '/home/yz/uns/models/bpnet/net3/log.txt'
-log2 = '/home/yz/uns/models/bpnet/net6/log.txt'
+log = '/home/yz/uns/models/bpnet/net8/log.txt'
+log2 = '/home/yz/uns/models/bpnet/net11/log.txt'
 
 
 plt.figure()
@@ -30,6 +30,6 @@ test = result['test0']
 plt.plot(train['iter'],train['total_loss'],'r')
 plt.plot(test['iter'],test['loss'],'y')
 
-plt.axis([0,4000,0, 1])
+plt.axis([0,4000,0.1, 0.8])
 plt.legend([log, log2])
 plt.savefig('/home/yz/uns/models/bpnet/compare.png')

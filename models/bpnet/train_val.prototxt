@@ -10,11 +10,13 @@ layer {
   transform_param {
     mirror: false
     mean_value: 100
-    crop_size: 224
+    # crop_size: 224
+    crop_h: 224
+    crop_w: 288
     # scale: 0.0039215
     # rotation_range: 60
     contrast_jitter_range: 0.1
-    # scale_jitter_range: 0.3
+    scale_jitter_range: 0.1
     #perspective_transformation_border: 10
   }
   data_param {
@@ -34,7 +36,9 @@ layer {
   transform_param {
     mirror: false
     mean_value: 100
-    crop_size: 224
+    # crop_size: 224
+    crop_h: 224
+    crop_w: 288
     # scale: 0.0039215
     # rotation_range: 60
     contrast_jitter_range: 0.1
@@ -43,7 +47,7 @@ layer {
   }
   data_param {
     source: "data/val_lmdb"
-    batch_size: 32
+    batch_size: 64
     backend: LMDB
   }
 }
@@ -61,7 +65,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 16
+    num_output: 32
     pad: 3
     kernel_size: 7
     stride: 2
@@ -126,7 +130,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 16
+    num_output: 32
     pad: 1
     kernel_size: 3
   }
@@ -201,7 +205,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -265,7 +269,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 32
+    num_output: 64
     pad: 1
     kernel_size: 3
   }
@@ -340,7 +344,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -404,7 +408,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 64
+    num_output: 128
     pad: 1
     kernel_size: 3
   }
@@ -475,7 +479,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 32
+#     num_output: 64
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -544,7 +548,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -608,7 +612,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -679,7 +683,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 64
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -748,7 +752,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -812,7 +816,7 @@ layer {
     weight_filler {
       type: "xavier"
     }
-    num_output: 128
+    num_output: 256
     pad: 1
     kernel_size: 3
   }
@@ -883,7 +887,7 @@ layer {
 #       type: "constant"
 #       value: 0
 #     }
-#     num_output: 64
+#     num_output: 128
 #     pad: 1
 #     kernel_size: 3
 #   }
@@ -925,7 +929,9 @@ layer {
   type: "Pooling"
   pooling_param {
     pool: AVE
-    kernel_size: 7
+    # kernel_size: 7
+    kernel_h: 7
+    kernel_w: 9
     stride: 1
   }
 }
