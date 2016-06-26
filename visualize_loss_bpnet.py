@@ -30,6 +30,6 @@ test = result['test0']
 plt.plot(train['iter'],train['total_loss'],'r')
 plt.plot(test['iter'],test['loss'],'y')
 
-plt.axis([0,4000,0.1, 0.8])
+plt.axis([0,4000,0.1, 1])
 plt.legend([log, log2])
 plt.savefig('/home/yz/uns/models/bpnet/compare.png')
