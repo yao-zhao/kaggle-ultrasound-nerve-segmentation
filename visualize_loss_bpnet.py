@@ -7,12 +7,12 @@ visualize logs
 import matplotlib
 import matplotlib.pyplot as plt
 import sys
-import parseLog
 caffe_root = '/home/yz/caffe-yao'
 sys.path.insert(0, caffe_root + '/python')
+import parseLog
 
-log = '/home/yz/uns/models/bpnet/net8/log.txt'
-log2 = '/home/yz/uns/models/bpnet/net11/log.txt'
+log = '/home/yz/uns/models/bpnet/net11/log.txt'
+log2 = '/home/yz/uns/models/bpnet/net12/log.txt'
 
 
 plt.figure()

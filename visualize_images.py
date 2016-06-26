@@ -24,7 +24,7 @@ for i in range(numfiles/2):
     segs.append(files[2*i+1])
     
     
-for i in range(20):
+for i in range(numfiles/2):
     img = cv2.imread(train_path+images[i],flags=0)    
     seg = cv2.imread(train_path+segs[i],0)*255
     ret,thresh = cv2.threshold(seg,127,255,0)

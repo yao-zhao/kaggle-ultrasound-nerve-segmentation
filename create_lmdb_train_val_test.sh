@@ -2,8 +2,8 @@
 DATA=~/uns/data
 RAWDATA=~/uns/data/raw
 TOOLS=~/caffe-yao/build/tools
-RESIZE_HEIGHT=224
-RESIZE_WIDTH=309
+RESIZE_HEIGHT=210
+RESIZE_WIDTH=280
 
 # create new lmdb database
 rm -rf $DATA/val_lmdb

@@ -5,7 +5,7 @@ for i in `seq 1 1`; do
 echo "start  training-------------------------------------------------------------------------"
 ~/caffe-yao/build/tools/caffe train -gpu 0 --solver=/home/yz/uns/models/bpnet/solver.prototxt \
      	2>&1 | tee /home/yz/uns/models/bpnet/log.txt
-# --snapshot=data/models/segnet_iter_2000.solverstate 2>&1 | tee -a log.txt
+ # --snapshot=data/models/bpnet_iter_2000.solverstate 2>&1 | tee -a log.txt
 
  echo " training done "
 

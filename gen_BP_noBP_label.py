@@ -7,7 +7,9 @@ this serves as the first part of image segmentation
 @author: yz
 """
 
-
+import sys
+caffe_root = '/home/yz/caffe-yao'
+sys.path.insert(0, caffe_root + '/python')
 import os
 import cv2
 import csv
