@@ -11,11 +11,11 @@ layer {
     mirror: true
     mean_value: 100
     # crop_size: 224
-    crop_h: 196
+    crop_h: 192
     crop_w: 256
     # scale: 0.0039215
     rotation_range: 10
-    contrast_jitter_range: 0.1
+    contrast_jitter_range: 0.3
     scale_jitter_range: 0.1
     #perspective_transformation_border: 10
   }
@@ -35,9 +35,9 @@ layer {
   }
   transform_param {
     mirror: false
-    mean_value: 50
+    mean_value: 100
     # crop_size: 224
-    crop_h: 196
+    crop_h: 192
     crop_w: 256
     # scale: 0.0039215
     # rotation_range: 60

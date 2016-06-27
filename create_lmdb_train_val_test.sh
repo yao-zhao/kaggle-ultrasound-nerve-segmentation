@@ -11,6 +11,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
+    --gray=true \
     $RAWDATA/train/ \
     $DATA/val_BP_label.txt \
     $DATA/val_lmdb
@@ -22,6 +23,7 @@ GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
     --shuffle \
+    --gray=true \
     $RAWDATA/train/ \
     $DATA/train_BP_label.txt \
     $DATA/train_lmdb
@@ -33,6 +35,7 @@ rm -rf $DATA/test_lmdb
 GLOG_logtostderr=1 $TOOLS/convert_imageset \
     --resize_height=$RESIZE_HEIGHT \
     --resize_width=$RESIZE_WIDTH \
+    --gray=true \
     $RAWDATA/test/ \
     $DATA/test_BP_label.txt \
     $DATA/test_lmdb
