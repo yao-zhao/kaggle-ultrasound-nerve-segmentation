@@ -11,8 +11,8 @@ caffe_root = '/home/yz/caffe-yao'
 sys.path.insert(0, caffe_root + '/python')
 import parseLog
 
-log = '/home/yz/uns/models/bpnet/net11/log.txt'
-log2 = '/home/yz/uns/models/bpnet/net12/log.txt'
+log = '/home/yz/uns/models/bpnet/net13/log.txt'
+log2 = '/home/yz/uns/models/bpnet/net16/log.txt'
 
 
 plt.figure()
@@ -32,4 +32,24 @@ plt.plot(test['iter'],test['loss'],'y')
 
 plt.axis([0,4000,0.1, 1])
 plt.legend([log, log2])
-plt.savefig('/home/yz/uns/models/bpnet/compare.png')
+plt.savefig('/home/yz/uns/models/bpnet/compare_loss.png')
+
+
+plt.figure()
+plt.show()
+
+result = parseLog.parseLog(log)
+train = result['train']
+test = result['test0']
+plt.plot(train['iter'][:-1],train['accuracy'],'b')
+plt.plot(test['iter'],test['accuracy'],'g')
+
+result = parseLog.parseLog(log2)
+train = result['train']
+test = result['test0']
+plt.plot(train['iter'][:-1],train['accuracy'],'r')
+plt.plot(test['iter'],test['accuracy'],'y')
+
+plt.axis([0,4000,0.1, 1])
+plt.legend([log, log2], loc = 'best')
+plt.savefig('/home/yz/uns/models/bpnet/compare_accuracy.png')

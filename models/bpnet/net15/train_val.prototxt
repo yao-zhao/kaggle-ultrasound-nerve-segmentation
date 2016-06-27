@@ -14,9 +14,9 @@ layer {
     crop_h: 196
     crop_w: 256
     # scale: 0.0039215
-    rotation_range: 10
+    rotation_range: 4
     contrast_jitter_range: 0.1
-    scale_jitter_range: 0.1
+    scale_jitter_range: 0.04
     #perspective_transformation_border: 10
   }
   data_param {
@@ -35,7 +35,7 @@ layer {
   }
   transform_param {
     mirror: false
-    mean_value: 50
+    mean_value: 100
     # crop_size: 224
     crop_h: 196
     crop_w: 256

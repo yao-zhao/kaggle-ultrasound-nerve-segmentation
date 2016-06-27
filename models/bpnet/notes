@@ -1,0 +1,10 @@
+1-11 invlalid becasuse train-val split is not patient based
+12. 10 layer net
+13. 5 layer net, better
+14. 5 layer net, start with 16,  worse
+14. 5 layer net, 32 with less augementation, scale_jitter and rotation are off, worse
+15. 5 layer net, less augementation, scale_jitter and rotation less, worse
+16. 5 layer net, more augmentation, no improvement, maybe a little bit less
+17. 5 layer net, tried 1.0 contrast_jitter, 0.1 contrast_jitter is better, seems sensitive to intensity
+18. 5 layer net, no contrast_jitter is no good, worse, seems best contrast_jitter is 0.1
+19. 5 layer net, mean value is important, 50 is not good as 100
