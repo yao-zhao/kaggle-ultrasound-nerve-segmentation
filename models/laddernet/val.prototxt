@@ -13,7 +13,7 @@ layer {
     # crop_size: 224
     crop_h: 192
     crop_w: 256
-    # scale: 0.0039215
+    scale: 0.0039215
     # rotation_range: 60
     # contrast_jitter_range: 0.1
     # scale_jitter_range: 0.3
@@ -57,6 +57,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {
@@ -131,6 +132,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {
@@ -204,6 +206,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {
@@ -277,6 +280,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {
@@ -350,6 +354,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {
@@ -423,6 +428,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: true
+    eps: 1e-3
   }
 }
 layer {

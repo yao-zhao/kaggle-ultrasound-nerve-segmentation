@@ -13,7 +13,7 @@ layer {
     # crop_size: 224
     crop_h: 192
     crop_w: 256
-    # scale: 0.0039215
+    scale: 0.0039215
     rotation_range: 10
     contrast_jitter_range: 0.3
     scale_jitter_range: 0.1
@@ -21,7 +21,7 @@ layer {
   }
   data_param {
     source: "data/train_lmdb"
-    batch_size: 32
+    batch_size: 16
     backend: LMDB
   }
 }
@@ -31,7 +31,7 @@ layer {
   top: "noisy_data"
   bottom: "data"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -69,6 +69,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -84,7 +85,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -104,6 +106,7 @@ layer {
   type: "BatchNorm"
   bottom: "z1_n"
   top: "z1_n"
+  # top: "bn1_n_param"
   param {
     lr_mult: 0
   }
@@ -115,6 +118,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -123,7 +127,7 @@ layer {
   top: "z1_n"
   bottom: "z1_n"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -139,7 +143,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -212,6 +217,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -227,7 +233,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -258,6 +265,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -266,7 +274,7 @@ layer {
   top: "z2_n"
   bottom: "z2_n"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -282,7 +290,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -355,6 +364,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -370,7 +380,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -401,6 +412,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -409,7 +421,7 @@ layer {
   top: "z3_n"
   bottom: "z3_n"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -425,7 +437,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -499,6 +512,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -514,7 +528,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -545,6 +560,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -553,7 +569,7 @@ layer {
   top: "z4_n"
   bottom: "z4_n"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -569,7 +585,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -642,6 +659,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -657,7 +675,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -688,6 +707,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -696,7 +716,7 @@ layer {
   top: "z5_n"
   bottom: "z5_n"
   noise_param {
-    sigma: 10
+    sigma: 0.05
   }
 }
 layer {
@@ -712,7 +732,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -785,6 +806,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -800,7 +822,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -832,6 +855,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -847,7 +871,8 @@ layer {
   }
   scale_param {
     filler {
-      type: "xavier"
+      type: "constant"
+      value: 1
     }
     bias_term: true
     bias_filler {
@@ -879,6 +904,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -921,6 +947,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -975,6 +1002,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -1029,6 +1057,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -1082,6 +1111,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -1136,6 +1166,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -1189,6 +1220,7 @@ layer {
   }
   batch_norm_param {
     use_global_stats: false
+    eps: 1e-3
   }
 }
 layer {
@@ -1203,60 +1235,60 @@ layer {
 layer {
   name: "loss_ladder_6"
   type: "LadderLoss"
-  bottom: "z6_n" 
+  bottom: "z6" 
   bottom: "z6_r"
   bottom: "bn6_param"
   top: "loss_ladder_6"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_5"
   type: "LadderLoss"
-  bottom: "z5_n" 
+  bottom: "z5" 
   bottom: "z5_r"
   bottom: "bn5_param"
   top: "loss_ladder_5"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_4"
   type: "LadderLoss"
-  bottom: "z4_n" 
+  bottom: "z4" 
   bottom: "z4_r"
   bottom: "bn4_param"
   top: "loss_ladder_4"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_3"
   type: "LadderLoss"
-  bottom: "z3_n" 
+  bottom: "z3" 
   bottom: "z3_r"
   bottom: "bn3_param"
   top: "loss_ladder_3"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_2"
   type: "LadderLoss"
-  bottom: "z2_n" 
+  bottom: "z2" 
   bottom: "z2_r"
   bottom: "bn2_param"
   top: "loss_ladder_2"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_1"
   type: "LadderLoss"
-  bottom: "z1_n" 
+  bottom: "z1" 
   bottom: "z1_r"
   bottom: "bn1_param"
   top: "loss_ladder_1"
-  loss_weight: 1
+  loss_weight: 0.1
 }
 layer {
   name: "loss_ladder_0"
-  type: "EuclideanLoss"
+  type: "LadderLoss"
   bottom: "noisy_data" 
   bottom: "z0_r"
   top: "loss_ladder_0"
@@ -1304,3 +1336,21 @@ layer {
   bottom: "label"
   top: "accuracy"
 }
+
+
+# layer {
+#   name: "loss_eucli_1"
+#   type: "EuclideanLoss"
+#   bottom: "z1" 
+#   bottom: "z1_r"
+#   top: "loss_eucli_1"
+#   loss_weight: 0.1
+# }
+# layer {
+#   name: "loss_eucli_param"
+#   type: "EuclideanLoss"
+#   bottom: "bn1_param" 
+#   bottom: "bn1_n_param"
+#   top: "loss_eucli_param"
+#   loss_weight: 0.1
+# }
