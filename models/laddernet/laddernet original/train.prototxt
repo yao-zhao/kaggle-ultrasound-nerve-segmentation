@@ -41,9 +41,6 @@ layer {
   bottom: "noisy_data"
   top: "z1_pre"
   top: "z1_n"
-  param: {
-    name: "conv1_w"
-  }
   convolution_param {
     num_output: 32
     bias_term: false
@@ -192,9 +189,6 @@ layer {
   bottom: "pool1_n"
   top: "z2_pre"
   top: "z2_n"
-  param: {
-    name: "conv2_w"
-  }
   convolution_param {
     num_output: 64
     bias_term: false
@@ -342,9 +336,6 @@ layer {
   bottom: "pool2_n"
   top: "z3_pre"
   top: "z3_n"
-  param: {
-    name: "conv3_w"
-  }
   convolution_param {
     num_output: 128
     bias_term: false
@@ -493,9 +484,6 @@ layer {
   bottom: "pool3_n"
   top: "z4_pre"
   top: "z4_n"
-  param: {
-    name: "conv4_w"
-  }
   convolution_param {
     num_output: 256
     bias_term: false
@@ -643,9 +631,6 @@ layer {
   bottom: "pool4_n"
   top: "z5_pre"
   top: "z5_n"
-  param: {
-    name: "conv5_w"
-  }
   convolution_param {
     num_output: 256
     bias_term: false
@@ -793,9 +778,6 @@ layer {
   bottom: "pool5_n"
   top: "z6_pre"
   top: "z6_n"
-  param: {
-    name: "conv6_w"
-  }
   convolution_param {
     num_output: 256
     bias_term: false
@@ -944,13 +926,9 @@ layer {
 
 layer {
   name: "recon6"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z6_r"
   top: "h6_r"
-  param: {
-    name: "conv6_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 256
     bias_term: false
@@ -1003,13 +981,9 @@ layer {
 
 layer {
   name: "recon5"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z5_r"
   top: "h5_r"
-  param: {
-    name: "conv5_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 256
     bias_term: false
@@ -1062,13 +1036,9 @@ layer {
 
 layer {
   name: "recon4"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z4_r"
   top: "h4_r"
-  param: {
-    name: "conv4_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 128
     bias_term: false
@@ -1120,13 +1090,9 @@ layer {
 }
 layer {
   name: "recon3"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z3_r"
   top: "h3_r"
-  param: {
-    name: "conv3_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 64
     bias_term: false
@@ -1179,13 +1145,9 @@ layer {
 
 layer {
   name: "recon2"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z2_r"
   top: "h2_r"
-  param: {
-    name: "conv2_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 32
     bias_term: false
@@ -1237,13 +1199,9 @@ layer {
 }
 layer {
   name: "recon1"
-  type: "Deconvolution"
+  type: "Convolution"
   bottom: "z1_r"
   top: "h1_r"
-  param: {
-    name: "conv1_w"
-    lr_mult: 0
-  }
   convolution_param {
     num_output: 1
     bias_term: false
