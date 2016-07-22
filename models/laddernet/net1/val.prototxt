@@ -21,7 +21,7 @@ layer {
   }
   data_param {
     source: "data/val_lmdb"
-    batch_size: 4
+    batch_size: 8
     backend: LMDB
   }
 }
@@ -31,7 +31,7 @@ layer {
   bottom: "data"
   top: "z1_pre"
   convolution_param {
-    num_output: 64
+    num_output: 32
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -106,7 +106,7 @@ layer {
   bottom: "pool1"
   top: "z2_pre"
   convolution_param {
-    num_output: 128
+    num_output: 64
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -180,7 +180,7 @@ layer {
   bottom: "pool2"
   top: "z3_pre"
   convolution_param {
-    num_output: 256
+    num_output: 128
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -254,7 +254,7 @@ layer {
   bottom: "pool3"
   top: "z4_pre"
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -328,7 +328,7 @@ layer {
   bottom: "pool4"
   top: "z5_pre"
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -402,7 +402,7 @@ layer {
   bottom: "pool5"
   top: "z6_pre"
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3

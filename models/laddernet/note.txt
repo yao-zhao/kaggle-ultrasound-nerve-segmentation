@@ -1,0 +1,2 @@
+net1: narrower net 6 layers start with 32, seems not improving result,, destablie it alot
+net2: 6 layer net start with 64, but the batch size is decreased by half

@@ -8,7 +8,7 @@ layer {
     phase: TRAIN
   }
   transform_param {
-    mirror: false
+    mirror: true
     mean_value: 100
     # crop_size: 224
     crop_h: 192
@@ -21,7 +21,7 @@ layer {
   }
   data_param {
     source: "data/train_lmdb"
-    batch_size: 12
+    batch_size: 24
     backend: LMDB
   }
 }
@@ -31,7 +31,7 @@ layer {
   top: "noisy_data"
   bottom: "data"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -45,7 +45,7 @@ layer {
     name: "conv1_w"
   }
   convolution_param {
-    num_output: 64
+    num_output: 32
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -71,8 +71,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -121,8 +120,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -132,7 +130,7 @@ layer {
   top: "z1_n"
   bottom: "z1_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -198,7 +196,7 @@ layer {
     name: "conv2_w"
   }
   convolution_param {
-    num_output: 128
+    num_output: 64
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -224,8 +222,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -273,8 +270,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -284,7 +280,7 @@ layer {
   top: "z2_n"
   bottom: "z2_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -350,7 +346,7 @@ layer {
     name: "conv3_w"
   }
   convolution_param {
-    num_output: 256
+    num_output: 128
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -376,8 +372,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -425,8 +420,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -436,7 +430,7 @@ layer {
   top: "z3_n"
   bottom: "z3_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -503,7 +497,7 @@ layer {
     name: "conv4_w"
   }
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -529,8 +523,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -578,8 +571,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -589,7 +581,7 @@ layer {
   top: "z4_n"
   bottom: "z4_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -655,7 +647,7 @@ layer {
     name: "conv5_w"
   }
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -681,8 +673,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -730,8 +721,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -741,7 +731,7 @@ layer {
   top: "z5_n"
   bottom: "z5_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -807,7 +797,7 @@ layer {
     name: "conv6_w"
   }
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: false
     pad: 1
     kernel_size: 3
@@ -833,8 +823,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -883,8 +872,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -894,7 +882,7 @@ layer {
   top: "z6_n"
   bottom: "z6_n"
   noise_param {
-    sigma: 0.3
+    sigma: 0.05
   }
 }
 layer {
@@ -942,8 +930,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -961,11 +948,11 @@ layer {
   bottom: "z6_r"
   top: "h6_r"
   param: {
-    # name: "conv6_w"
+    name: "conv6_w"
     lr_mult: 1
   }
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: true
     pad: 1
     kernel_size: 3
@@ -994,8 +981,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -1025,11 +1011,11 @@ layer {
   bottom: "z5_r"
   top: "h5_r"
   param: {
-    # name: "conv5_w"
+    name: "conv5_w"
     lr_mult: 1
   }
   convolution_param {
-    num_output: 512
+    num_output: 256
     bias_term: true
     pad: 1
     kernel_size: 3
@@ -1058,8 +1044,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -1089,11 +1074,11 @@ layer {
   bottom: "z4_r"
   top: "h4_r"
   param: {
-    # name: "conv4_w"
+    name: "conv4_w"
     lr_mult: 1
   }
   convolution_param {
-    num_output: 256
+    num_output: 128
     bias_term: true
     pad: 1
     kernel_size: 3
@@ -1122,8 +1107,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -1152,11 +1136,11 @@ layer {
   bottom: "z3_r"
   top: "h3_r"
   param: {
-    # name: "conv3_w"
+    name: "conv3_w"
     lr_mult: 1
   }
   convolution_param {
-    num_output: 128
+    num_output: 64
     bias_term: true
     pad: 1
     kernel_size: 3
@@ -1185,8 +1169,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -1216,11 +1199,11 @@ layer {
   bottom: "z2_r"
   top: "h2_r"
   param: {
-    # name: "conv2_w"
+    name: "conv2_w"
     lr_mult: 1
   }
   convolution_param {
-    num_output: 64
+    num_output: 32
     bias_term: true
     pad: 1
     kernel_size: 3
@@ -1249,8 +1232,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
@@ -1279,7 +1261,7 @@ layer {
   bottom: "z1_r"
   top: "h1_r"
   param: {
-    # name: "conv1_w"
+    name: "conv1_w"
     lr_mult: 1
   }
   convolution_param {
@@ -1312,8 +1294,7 @@ layer {
     lr_mult: 0
   }
   batch_norm_param {
-    use_global_stats: true
-    update_global_stats: true
+    use_global_stats: false
     eps: 1e-3
   }
 }
